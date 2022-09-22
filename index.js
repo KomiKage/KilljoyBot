@@ -6,7 +6,11 @@ const path = require('node:path');
 const client = new Client({ intents: [GatewayIntentBits.Guilds,
                                       GatewayIntentBits.GuildMessages,
                                       GatewayIntentBits.MessageContent,
-                                      GatewayIntentBits.GuildMembers] });
+                                      GatewayIntentBits.GuildMembers,
+									  GatewayIntentBits.DirectMessages],
+									  partials: [
+										  'CHANNEL', // Required to receive DMs
+									  ] });
 
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
@@ -48,6 +52,15 @@ client.on('interactionCreate', async interaction => {
 	}
 });	
 
+client.on('interactionCreate', interaction => {
+	if (!interaction.isButton()) return;
+	if (interaction.customId =! 'redButton') return;
+	const user = interaction.options.getUser('target');
+	guild.members.ban(user);
+});
+
 //=============================================================
+
+
 
 client.login(token);
