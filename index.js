@@ -1,8 +1,10 @@
-const { Client, Collection, GatewayIntentBits, AttachmentBuilder  } = require('discord.js');
+const { Client, codeBlock, Collection, GatewayIntentBits, AttachmentBuilder  } = require('discord.js');
 const { token } = require('./config.json');
+const { Op } = require('sequelize');
 const fs = require('node:fs');
 const path = require('node:path');
 const Canvas = require('@napi-rs/canvas');
+const { Users, CurrencyShop } = require('./dbObjects.js');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds,
                                       GatewayIntentBits.GuildMessages,
@@ -16,6 +18,8 @@ const client = new Client({ intents: [GatewayIntentBits.Guilds,
 client.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
+
+const currency = new Collection();
 
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
@@ -38,6 +42,29 @@ for (const file of eventFiles) {
 	}
 }
 
+Reflect.defineProperty(currency, 'add', {
+	value: async (id, amount) => {
+		const user = currency.get(id);
+
+		if (user) {
+			user.balance += Number(amount);
+			return user.save();
+		}
+
+		const newUser = await Users.create({ user_id: id, balance: amount });
+		currency.set(id, newUser);
+
+		return newUser;
+	},
+});
+
+Reflect.defineProperty(currency, 'getBalance', {
+	value: id => {
+		const user = currency.get(id);
+		return user ? user.balance : 0;
+	},
+});
+
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
@@ -58,6 +85,11 @@ client.on('interactionCreate', interaction => {
 	if (interaction.customId =! 'redButton') return;
 	const user = interaction.options.getUser('target');
 	guild.members.ban(user);
+});
+
+client.once('ready', async () => {
+	const storedBalances = await Users.findAll();
+	storedBalances.forEach(b => currency.set(b.user_id, b));
 });
 
 //=============================================================
