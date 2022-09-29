@@ -5,7 +5,7 @@ const {currency, getBalance} = require('../index')
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('balance')
-		.setDescription('Yer balance.'),
+		.setDescription('Currently unavailable.'),
 	async execute(interaction) {
         
 		const target = interaction.options.getUser('user') ?? interaction.user;

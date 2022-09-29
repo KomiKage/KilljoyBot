@@ -4,7 +4,7 @@ const { Users, getItems} = require('../dbObjects.js');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('inventory')
-		.setDescription('Yer inventory.'),
+		.setDescription('Currently unavailable.'),
 	async execute(interaction) {
 		const target = interaction.options.getUser('user') ?? interaction.user;
 	    const user = await Users.findOne({ where: { user_id: target.id } });
