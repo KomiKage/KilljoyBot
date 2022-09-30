@@ -10,8 +10,8 @@ module.exports = {
 		date.getDate();
 		global.dateSTR = date.toDateString();
 		console.log(`Ready! Logged in as ${client.user.tag}`);
-		if(fs.existsSync(`chatLogs/${dateSTR}.txt`)){
+		if(fs.existsSync(`C:/Users/Barusu/Desktop/KilljoyBot/chatLogs/${dateSTR}.txt`)){
 			return;
-		} else{var createStream = fs.createWriteStream(`chatLogs/${dateSTR}.txt`); createStream.end();}
-	}
+		} else{var createStream = fs.createWriteStream(`C:/Users/Barusu/Desktop/KilljoyBot/chatLogs/${dateSTR}.txt`); createStream.end();}
+	},
 };

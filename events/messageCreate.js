@@ -8,7 +8,7 @@ module.exports={
 
         console.log(content);
         
-        fs.appendFile(`./chatLogs/${dateSTR}.txt`, content + '\n', err => {
+        fs.appendFile(`C:/Users/Barusu/Desktop/KilljoyBot/chatLogs/${dateSTR}.txt`, content + '\n', err => {
             if (err) {
               console.error(err);
             }
