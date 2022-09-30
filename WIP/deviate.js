@@ -14,6 +14,6 @@ module.exports = {
                     this.image = response.data[0]; // the response is an Array, so just use the first item as the Image
 
         await interaction.reply(this);
-	},
+	}
 };
 
