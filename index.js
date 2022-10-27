@@ -80,12 +80,12 @@ client.on('interactionCreate', async interaction => {
 	}
 });	
 
-client.on('interactionCreate', interaction => {
-	if (!interaction.isButton()) return;
-	if (interaction.customId =! 'redButton') return;
-	const user = interaction.options.getUser('target');
-	guild.members.ban(user);
-});
+//client.on('interactionCreate', interaction => {
+//	if (!interaction.isButton()) return;
+//	if (interaction.customId =! 'redButton') return;
+//	const user = interaction.options.getUser('target');
+//	guild.members.ban(user);
+//});
 
 client.once('ready', async () => {
 	const storedBalances = await Users.findAll();

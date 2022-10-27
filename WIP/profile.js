@@ -22,7 +22,7 @@ const applyText = (canvas, text) => {
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('profile')
-		.setDescription('PROFILE'),
+		.setDescription('I DO NOT WORK'),
 	async execute(interaction) {
 		// Create a 700x250 pixel canvas and get its context
 		// The context will be used to modify the canvas

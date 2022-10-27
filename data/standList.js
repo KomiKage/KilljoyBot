@@ -4,3 +4,5 @@ class stand {
         this.standName = standName;
     }
 }
+
+exports.stands = ["Star Platinum","Crazy Diamond","Golden Experience"]
