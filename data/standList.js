@@ -5,4 +5,8 @@ class stand {
     }
 }
 
-exports.stands = ["Star Platinum","Crazy Diamond","Golden Experience"]
+const stands = ["Star Platinum","Crazy Diamond","Golden Experience","Stone Free","Tusk Act 1","Soft & Wet"];
+
+module.exports = {
+    stands
+ }

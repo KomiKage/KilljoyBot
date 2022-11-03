@@ -1,4 +1,4 @@
-const stands = require('../data/standList.js');
+const { stands } = require('../data/standList.js');
 
 module.exports = {
 	name: 'interactionCreate',
@@ -7,10 +7,7 @@ module.exports = {
 		if(interaction.isButton()){
 			
 			if (interaction.customId = 'standarrow'){
-				var stand = stands[0];
-				console.log(stands);
-				console.log(stands[0]);
-				console.log(stand);
+				var stand = stands[Math.floor(Math.random()*stands.length)];
 				await interaction.reply("You have awakened the power of *" + (stand) + "*!");}	
 		}
 		
