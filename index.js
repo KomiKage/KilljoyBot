@@ -88,8 +88,11 @@ client.on('interactionCreate', async interaction => {
 //});
 
 client.once('ready', async () => {
+	const guild = client.guilds.cache.get("747774026482712578");
 	const storedBalances = await Users.findAll();
 	storedBalances.forEach(b => currency.set(b.user_id, b));
+	const memberIds = guild.members.cache.map(member => member.id);
+
 });
 
 //=============================================================

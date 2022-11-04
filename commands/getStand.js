@@ -22,6 +22,4 @@ module.exports = {
 
 	await interaction.reply({ content: '', ephemeral: true, embeds: [embed], components: [row] } );},
 	
-
-	
 };
