@@ -1,6 +1,9 @@
 const { Message } = require('discord.js');
-const { stands } = require('../data/standList.js');
+//const { stands } = require('../data/standList.js');
+const stands = require('../data/stands.json');
 const fs = require('fs')
+
+//requiring the correct filepath should fix the direct path issue (:
 
 const fp = 'C:/Users/Barusu/Desktop/KilljoyBot/data/standUsers.json' // gotta fix file path
 const contents = fs.readFileSync(fp, 'utf-8');
@@ -12,13 +15,13 @@ module.exports = {
 		if(interaction.isButton()){
 
 			if (interaction.customId = 'standarrow' && !contents.includes(interaction.user.id)){
-				console.log('bread');
 				var stand = stands[Math.floor(Math.random()*stands.length)];
-				await interaction.reply("You have awakened the power of ***" + (stand) + "***!");
+				await interaction.reply("You have awakened the power of ***" + (stand.name) + "***!");
 				
 				let data = {
 					uid: (interaction.user.id),
-					stand: (stand)
+					id: (stand.id),
+					standName: (stand.name)
 				}
 				const stat = await fs.promises.stat(fp);
   				const fileSize = stat.size;
