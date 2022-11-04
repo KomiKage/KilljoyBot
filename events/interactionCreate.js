@@ -10,10 +10,12 @@ module.exports = {
 	async execute(interaction, client) {
 
 		if(interaction.isButton()){
-			
-			if (interaction.customId = 'standarrow' & !contents.includes(interaction.user.id)){
+
+			if (interaction.customId = 'standarrow' && !contents.includes(interaction.user.id)){
+				console.log('bread');
 				var stand = stands[Math.floor(Math.random()*stands.length)];
-				await interaction.reply("You have awakened the power of *" + (stand) + "*!");}	
+				await interaction.reply("You have awakened the power of ***" + (stand) + "***!");
+				
 				let data = {
 					uid: (interaction.user.id),
 					stand: (stand)
@@ -21,8 +23,9 @@ module.exports = {
 				const stat = await fs.promises.stat(fp);
   				const fileSize = stat.size;
 
-  				await fs.promises.truncate(fp, fileSize - 1);
-				fs.appendFileSync(fp, "," + JSON.stringify(data) + "]");
+  				//await fs.promises.truncate(fp, fileSize - 1);
+				//fs.appendFileSync(fp, "," + JSON.stringify(data) + "]");
+			}
 		}
 		
 		console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`);

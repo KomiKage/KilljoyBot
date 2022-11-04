@@ -18,7 +18,7 @@ module.exports = {
 		const embed = new EmbedBuilder()
 			.setColor(0x0099FF)
 			.setTitle('A wild stand arrow appears!')
-			.setImage('https://imgur.com/3C2Ver5.jpg')
+			.setImage('https://i.imgur.com/guDQKim.jpg')
 
 	await interaction.reply({ content: '', ephemeral: true, embeds: [embed], components: [row] } );},
 	
