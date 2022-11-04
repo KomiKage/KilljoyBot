@@ -16,10 +16,10 @@ module.exports = {
 		);
 
 		const embed = new EmbedBuilder()
-			.setColor(0x0099FF)
+			.setColor(0xFFE100)
 			.setTitle('A wild stand arrow appears!')
 			.setImage('https://i.imgur.com/guDQKim.jpg')
 
-	await interaction.reply({ content: '', ephemeral: true, embeds: [embed], components: [row] } );},
+	await interaction.reply({ content: '', ephemeral: false, embeds: [embed], components: [row] } );},
 	
 };

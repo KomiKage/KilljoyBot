@@ -1,4 +1,4 @@
-const { Message } = require('discord.js');
+const { Message, SlashCommandBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder  } = require('discord.js');
 //const { stands } = require('../data/standList.js');
 const stands = require('../data/stands.json');
 const fs = require('fs')
@@ -16,7 +16,14 @@ module.exports = {
 
 			if (interaction.customId = 'standarrow' && !contents.includes(interaction.user.id)){
 				var stand = stands[Math.floor(Math.random()*stands.length)];
-				await interaction.reply("You have awakened the power of ***" + (stand.name) + "***!");
+
+				const embed = new EmbedBuilder()
+				.setColor(0xFFE100)
+				.setTitle("You have awakened the power of ***" + (stand.name) + "***!")
+				.setImage(stand.thumbnail)
+
+				await interaction.reply({ content: '', ephemeral: false, embeds: [embed]} );
+				//await interaction.reply("You have awakened the power of ***" + (stand.name) + "***!");
 				
 				let data = {
 					uid: (interaction.user.id),
