@@ -6,6 +6,7 @@ const path = require('node:path');
 const Canvas = require('@napi-rs/canvas');
 const { Users, CurrencyShop } = require('./dbObjects.js');
 const stands = require('./data/stands.json');
+const standsUsers = require('./data/standUsers.json');
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds,
                                       GatewayIntentBits.GuildMessages,
@@ -95,9 +96,6 @@ client.once('ready', async () => {
 	const memberIds = guild.members.cache.map(member => member.id);
 
 	//json stands testing
-
-		//console.log(stands[1].name);
-
 });
 
 //=============================================================

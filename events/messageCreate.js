@@ -12,15 +12,17 @@ module.exports={
             if (err) {
               console.error(err);
             }
-            // file written successfully
           });
 
-        /*if(message.author != 973553585210142721){
-            message.reply('awooooo')
-        
+        let rnd = Math.floor(Math.random() * 101);
+        if(rnd > 99 && message.author != 973553585210142721){
+          fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
+            .then(Response => { return Response.json()})
+            .then(reply => {message.reply(reply.insult)})
+
         .then(() => console.log(`Replied to message "${message.content}"`))
         .catch(console.error);
-        }*/
+        }
 
         }
 };
