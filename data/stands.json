@@ -2,31 +2,37 @@
     {
         "name": "Star Platinum",
         "thumbnail": "https://i.imgur.com/QWpMwKt.png",
-        "id": "1"
+        "id": "1",
+        "main": ""
     },
     {
         "name": "Crazy Diamond",
         "thumbnail": "https://i.imgur.com/Eu9mOXp.jpg",
-        "id": "2"
+        "id": "2",
+        "main": ""
     },
     {
         "name": "Golden Experience",
         "thumbnail": "https://i.imgur.com/W2TKl8s.jpg",
-        "id": "3"
+        "id": "3",
+        "main": ""
     },
     {
         "name": "Stone Free",
         "thumbnail": "https://i.imgur.com/lrOX3g6.png",
-        "id": "4"
+        "id": "4",
+        "main": ""
     },
     {
         "name": "Tusk Act 1",
         "thumbnail": "https://i.imgur.com/jmnrfl2.png",
-        "id": "5"
+        "id": "5",
+        "main": ""
     },
     {
         "name": "Soft & Wet",
         "thumbnail": "https://i.imgur.com/7IhumBI.jpg",
-        "id": "6"
+        "id": "6",
+        "main": ""
     }
 ]
