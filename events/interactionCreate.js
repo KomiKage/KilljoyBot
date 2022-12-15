@@ -12,6 +12,7 @@ module.exports = {
 	async execute(interaction, client) {
 
 		if(interaction.isButton()){
+
 			const contents = fs.readFileSync(fp, 'utf-8');
 			if (interaction.customId = 'standarrow' && !contents.includes(interaction.user.id)){
 				console.log(contents.includes(interaction.user.id));
@@ -27,14 +28,19 @@ module.exports = {
 				
 				let data = {
 					uid: (interaction.user.id),
-					id: (stand.id),
-					standName: (stand.name)
+					id: (stand.id)
 				}
 				const stat = await fs.promises.stat(fp);
   				const fileSize = stat.size;
 
   				await fs.promises.truncate(fp, fileSize - 1);
 				fs.appendFileSync(fp, "," + JSON.stringify(data) + "]");
+			}
+
+			//stand main abilities
+
+			if(interaction.customId = 'plunder' && !contents.includes(interaction.user.id)){
+
 			}
 		}
 		
