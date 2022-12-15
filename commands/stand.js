@@ -6,6 +6,8 @@ let standName = '';
 let id = 0;
 let thumbnail = '';
 let main = '';
+let xp = '';
+let lvl = '';
 
 module.exports = {
 	
@@ -15,9 +17,13 @@ module.exports = {
 		
 	async execute(interaction) {
 
+		delete require.cache[require.resolve('../data/standUsers.json')];
+		const standUsers = require('../data/standUsers.json');
+
 		for (let i = 0; i < standUsers.length; i++) {
 			if(standUsers[i].uid == interaction.user.id){
 				id = (standUsers[i].id);
+				xp = (standUsers[i].xp);
 			}
 		for (let i = 0; i < stands.length; i++){
 			if(stands[i].id == id){
@@ -31,7 +37,7 @@ module.exports = {
 
 		const embed = new EmbedBuilder()
 			.setColor(0xFFE100)
-			.setTitle(`Your stand: **${standName}**`)
+			.setTitle(`Your stand: **${standName}**\n Stand XP: ${xp}`)
 			.setImage(thumbnail)
 
 		const row = new ActionRowBuilder()

@@ -15,6 +15,7 @@ module.exports = {
 
 			const contents = fs.readFileSync(fp, 'utf-8');
 			if (interaction.customId = 'standarrow' && !contents.includes(interaction.user.id)){
+
 				console.log(contents.includes(interaction.user.id));
 				var stand = stands[Math.floor(Math.random()*stands.length)];
 
@@ -28,7 +29,8 @@ module.exports = {
 				
 				let data = {
 					uid: (interaction.user.id),
-					id: (stand.id)
+					id: (stand.id),
+					xp: 0
 				}
 				const stat = await fs.promises.stat(fp);
   				const fileSize = stat.size;
