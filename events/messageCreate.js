@@ -2,7 +2,6 @@ const fs = require('fs');
 const standUsers = require('../data/standUsers.json');
 const path = 'C:/Users/Barusu/Desktop/KilljoyBot/data/standUsers.json';
 //USING DIRECT FILE PATH = NOT GOOD
-let cnt = JSON.parse(fs.readFileSync(path, 'utf8'));
 
 module.exports={
     name: 'messageCreate',
@@ -23,6 +22,7 @@ module.exports={
           for(let i = 0; i < standUsers.length; i++){
             if(standUsers[i].uid == message.author){
               console.log(message.author.id);
+              let cnt = JSON.parse(fs.readFileSync(path, 'utf8'));
               var addInt = parseInt(cnt[i].xp) + 1;
               var add = addInt.toString();
               cnt[i].xp = add;
@@ -31,7 +31,7 @@ module.exports={
 		          const standUsers = require('../data/standUsers.json');
             }
           }
-
+          
         let rnd = Math.floor(Math.random() * 101);
         if(rnd > 99 && message.author != 973553585210142721){
           fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
