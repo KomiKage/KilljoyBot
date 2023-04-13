@@ -11,20 +11,33 @@ module.exports = {
         const channel = interaction.channel;
 
         var cunt = 0;
+        var lastId = 0;
+        var options = { limit: 100};
+        var size = 100;
 
-        channel.messages.fetch({limit: 100})
+        if(size === 100){
+          channel.messages.fetch(options)
 
-        .then(messages => {
-          messages.forEach(message => {
-            console.log(`${message.author.username}: ${message.content}`);
-            cunt = cunt +1;
-            console.log(cunt);
-          });
+          .then(messages => {
+            if (lastId !== undefined) {
+              options.before = lastId;
+            }
+            const filteredMessages = messages.filter(message => message.author.id === target.id);
+            filteredMessages.forEach(message => {
+              console.log(`${message.author.username}: ${message.content}`);
+              var lastId = message.id;
+              cunt = cunt +1;
+              console.log(cunt);
+              console.log(lastId);
+              
+            });
+            console.log("|-|-|-|-|-|");
+            size = messages.size;
+            const gay = size;
         })
-        
-        .catch(console.error);
+        }
 
-		await interaction.reply(`${channel}`);
+		await interaction.reply({ content: target.username + ' is a faggot~!', ephemeral: false });
         
 	},
 };
