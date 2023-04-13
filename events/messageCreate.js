@@ -21,7 +21,6 @@ module.exports={
 
           for(let i = 0; i < standUsers.length; i++){
             if(standUsers[i].uid == message.author){
-              console.log(message.author.id);
               let cnt = JSON.parse(fs.readFileSync(path, 'utf8'));
               var addInt = parseInt(cnt[i].xp) + 1;
               var add = addInt.toString();
