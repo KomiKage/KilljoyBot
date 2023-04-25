@@ -6,7 +6,7 @@ module.exports = {
 	name: 'ready',
 	once: true,
 	execute(client) {
-        client.user.setActivity('a shit eating contest', { type: ActivityType.Competing });
+        client.user.setActivity('minecraft hunger games', { type: ActivityType.Competing });
 		date.getDate();
 		global.dateSTR = date.toDateString();
 		console.log(`Ready! Logged in as ${client.user.tag}`);
